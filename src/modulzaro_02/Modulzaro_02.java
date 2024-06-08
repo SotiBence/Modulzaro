@@ -155,13 +155,15 @@ public class Modulzaro_02 {
     }
       
        private static int linKer(){
+           int index = 0;
            int i = 0;
         int N = tomb.length;
         while(i < N && tomb[i] != 13){
             i++;
+            index = i;
         }
         if(i < N){
-            return 1;
+            return index;
         }else{
             return -1;
         }
@@ -169,10 +171,12 @@ public class Modulzaro_02 {
            private static void linKerBemutatasa() {
                konzolraIr("A tömbben van e 13 as szám?" + SEP);
         int i = linKer();
-        if(i == 1){
-            konzolraIr("helye: %d%s".formatted(tomb[i], SEP));
-        }else{
+        if(i == -1){
             konzolraIr("helye : -1" + SEP);
+            //konzolraIr("helye: %d%s".formatted(tomb[i], SEP));
+        }else{
+            konzolraIr("helye: %d%s".formatted(linKer(), SEP));
+            //konzolraIr("helye : -1" + SEP);
         }
            }
        
