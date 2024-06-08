@@ -35,8 +35,8 @@ public class Modulzaro_02 {
     }
 
     private static int[] feltolt(int db) {
-        int also = 0;
-        int felso = 6;
+        int also = 10;
+        int felso = 15;
         tomb = new int[db];
         for (int i = 0; i < db; i++) {
             tomb[i] = (int)(Math.random()*(felso - also +1)+ also);
@@ -157,11 +157,11 @@ public class Modulzaro_02 {
        private static int linKer(){
            int i = 0;
         int N = tomb.length;
-        while(i < N && tomb[i]== 13){
+        while(i < N && tomb[i] != 13){
             i++;
         }
         if(i < N){
-            return i;
+            return 1;
         }else{
             return -1;
         }
@@ -170,9 +170,9 @@ public class Modulzaro_02 {
                konzolraIr("A tömbben van e 13 as szám?" + SEP);
         int i = linKer();
         if(i == 1){
-            konzolraIr("Van iylen szám, a %d%s".formatted(tomb[i], SEP));
+            konzolraIr("helye: %d%s".formatted(tomb[i], SEP));
         }else{
-            konzolraIr("Nincs ilyen szám!" + SEP);
+            konzolraIr("helye : -1" + SEP);
         }
            }
        
