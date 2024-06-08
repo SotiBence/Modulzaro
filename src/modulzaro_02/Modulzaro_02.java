@@ -114,7 +114,7 @@ public class Modulzaro_02 {
      private static int kivalasztas(){
          int index = 0;
         int i = 0;
-        while( !(tomb[i] %5 != 0)){
+        while(i < tomb.length && !(tomb[i] % 5 == 0)){
             index = i;
             i++;
         }
@@ -122,7 +122,7 @@ public class Modulzaro_02 {
     }
          private static void kivalasztasBemutatasa() {
               konzolraIr("Az első elem helye, ami oszthato 5 el: ");
-        konzolraIr(tomb[kivalasztas()] + SEP);
+        konzolraIr(kivalasztas() + SEP);
          }
      
      private static boolean eldontesEgy(){
@@ -139,14 +139,14 @@ public class Modulzaro_02 {
          }
     
       private static boolean eldontesMind(){
-        int m = 0;
+          int a = 0;
         int i = 0;
         int N = tomb.length;
-        while(i < N && m <= tomb[i]){
-            m = tomb[i];
+        while(i < N && a <= tomb[i]){
+            a = tomb[i];
             i++;
         }
-        return m < tomb[i];
+        return i >= N;
     }
       
           private static void eldontesMindBemutatasa() {
