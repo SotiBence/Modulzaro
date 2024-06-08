@@ -9,6 +9,7 @@ public class Modulzaro_02 {
 
     public static void main(String[] args) {
         programozoiTetelek();
+        adatszerkezetTomb();
     }
 
     private static void programozoiTetelek() {
@@ -19,12 +20,13 @@ public class Modulzaro_02 {
         megszamlalalsBemutatasa();
         minHelyBemutatasa();
         maxHelyBemutatasa();
-        //kivalasztasBemutatasa();
+        kivalasztasBemutatasa();
         eldontesegyBemutatasa();
         eldontesMindBemutatasa();
         linKerBemutatasa();
         
     }
+
 
     private static int velSzam(int also, int felso) {
         int szam;
@@ -109,19 +111,19 @@ public class Modulzaro_02 {
         konzolraIr(s + SEP);
         }
     
-//     private static int kivalasztas(){
-//         int index = 0;
-//        int i = 0;
-//        while( !(tomb[i] %5 != 0)){
-//            index = i;
-//            i++;
-//        }
-//        return index;
-//    }
-//         private static void kivalasztasBemutatasa() {
-//              konzolraIr("Az első elem helye, ami oszthato 5 el: ");
-//        konzolraIr(tomb[kivalasztas()] + SEP);
-//         }
+     private static int kivalasztas(){
+         int index = 0;
+        int i = 0;
+        while( !(tomb[i] %5 != 0)){
+            index = i;
+            i++;
+        }
+        return index;
+    }
+         private static void kivalasztasBemutatasa() {
+              konzolraIr("Az első elem helye, ami oszthato 5 el: ");
+        konzolraIr(tomb[kivalasztas()] + SEP);
+         }
      
      private static boolean eldontesEgy(){
         int i = 0;
@@ -153,9 +155,9 @@ public class Modulzaro_02 {
     }
       
        private static int linKer(){
-        int i = 0;
+           int i = 0;
         int N = tomb.length;
-        while(i < N && tomb[i] != 13){
+        while(i < N && tomb[i]== 13){
             i++;
         }
         if(i < N){
@@ -165,10 +167,10 @@ public class Modulzaro_02 {
         }
     }
            private static void linKerBemutatasa() {
-        konzolraIr("A keresett szám:13" + SEP);
+               konzolraIr("A tömbben van e 13 as szám?" + SEP);
         int i = linKer();
-        if(i != -1){
-            konzolraIr("Van iylen szám, a(z) %d%s".formatted(tomb[i], SEP));
+        if(i == 1){
+            konzolraIr("Van iylen szám, a %d%s".formatted(tomb[i], SEP));
         }else{
             konzolraIr("Nincs ilyen szám!" + SEP);
         }
@@ -177,6 +179,35 @@ public class Modulzaro_02 {
        private static void konzolraIr(String kimenet){
            System.out.print(kimenet);
        }
+       
+               private static void adatszerkezetTomb() {
+            ketdimenziosMatrix();
+            matrixKiir(ketdimenziosMatrix());
+        }
+
+    private static int[][] ketdimenziosMatrix() {
+        int[][] negyzetes = new int [3][3];
+        negyzetes [0][0] = (int)(Math.random()*10);
+        negyzetes [0][2] = (int)(Math.random()*10);
+        negyzetes [1][1] = (int)(Math.random()*10); 
+        negyzetes [2][0] = (int)(Math.random()*10);
+        negyzetes [2][2] = (int)(Math.random()*10);
+        
+
+
+        return negyzetes;
+    }
+
+    private static void matrixKiir(int[][] matrix) {
+                for (int[] tomb : matrix) {
+            for (int szam : tomb) {
+                System.out.printf("%3d", szam);
+            }
+            System.out.println("");
+        }
+    }
+
+
 
 
 
